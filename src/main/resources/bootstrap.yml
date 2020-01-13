@@ -1,0 +1,24 @@
+spring:
+  profiles: 
+    active: local
+  #应用名称
+  application:
+    name: eureka-service
+
+#设置actuator
+management:
+  security:
+    enabled: false
+endpoints:
+   # 日志监控
+   logfile:
+      enabled: true
+      sensitive: false
+      external-file: /app/logs/${spring.application.name}/${spring.application.name}.log
+   # 关闭地址
+   shutdown:
+      enabled: true
+      sensitive: false #禁用密码验证
+   # 跨域允许方法
+   cors:
+      allowed-methods: HEAD,GET,POST

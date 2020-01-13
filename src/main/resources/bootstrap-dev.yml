@@ -1,0 +1,25 @@
+server:
+  port: 8761 #启动端口
+#eureka配置
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    register-with-eureka: false  #false:不作为一个客户端注册到注册中心
+    fetch-registry: false        #为true时，可以启动，但报异常：Cannot execute request on any known server
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+    healthcheck:
+      enabled: true
+  server:
+    #设置扫描失效服务的间隔时间 开发环境可以调小
+    eviction-interval-timer-in-ms: 20000
+    #生产环境必须开启此选项 开发环境可以关闭
+    enable-self-preservation: false
+#安全配置
+security:
+  basic:
+    enabled: true
+  user:
+    name: ioc
+    password: 123456
