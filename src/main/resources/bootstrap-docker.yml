@@ -20,5 +20,5 @@ security:
   basic:
     enabled: true
   user:
-    name: ioc
+    name: enhinck
     password: 123456
